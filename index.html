@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.className+=" js"</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Denis Cenuse — Data Platform Engineer</title>
+<meta name="description" content="Data Platform Engineer building and running production data platforms on Google Cloud.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000000; --panel:#0a0a0a; --line:#222831; --ink:#e6edf3; --muted:#8b98a9;
+  --acc:#3b82f6; --acc2:#60a5fa;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --sans:"Inter","Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--sans)}
+a{color:var(--acc)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+nav{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.85rem;padding-bottom:.85rem}
+.logo{font:500 .95rem var(--mono);color:var(--acc);text-decoration:none}
+nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.92rem}
+nav ul a:hover{color:var(--ink)}
+.hero{padding:4.5rem 0 2.5rem}
+.grid{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:.5rem;font:400 .8rem var(--mono);color:var(--acc);border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:.3rem .8rem;margin-bottom:1.4rem}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc)}
+h1{font:800 clamp(2.8rem,8vw,4.8rem)/1 var(--sans);letter-spacing:-.04em;margin:0 0 1.2rem;color:#fff}
+h1 span{display:block;color:#000;-webkit-text-stroke:2px #fff;paint-order:stroke fill}
+.lede{color:var(--muted);font-size:1.1rem;max-width:34rem;margin:0 0 1.6rem}
+.lede b{color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{font:500 .9rem var(--mono);text-decoration:none;padding:.7rem 1.2rem;border-radius:6px;border:1px solid var(--line);color:var(--ink);background:var(--panel);cursor:pointer}
+.btn.main{background:var(--acc);border-color:var(--acc);color:#fff}
+.term{background:#000;border:1px solid var(--line);border-radius:10px;overflow:hidden;font:400 .82rem/1.7 var(--mono)}
+.term .bar{display:flex;align-items:center;gap:.4rem;padding:.6rem .9rem;background:var(--panel);border-bottom:1px solid var(--line);color:var(--muted)}
+.term .bar i{width:10px;height:10px;border-radius:50%;background:#ff5f56}
+.term .bar i:nth-child(2){background:#ffbd2e}.term .bar i:nth-child(3){background:#3b82f6}
+.term .bar span{margin-left:.6rem}
+.term pre{margin:0;padding:1rem;white-space:pre-wrap;overflow-x:auto}
+.p{color:var(--acc)}.o{color:var(--muted)}.k{color:var(--acc2)}.g{color:#60a5fa}.y{color:#e3b341}.r{color:#f85149}.c{color:#e6edf3}
+.js .term pre div{opacity:0}.js .term.in pre div{animation:show .01s forwards}
+.term pre div:nth-child(1){animation-delay:.3s}.term pre div:nth-child(2){animation-delay:.9s}.term pre div:nth-child(3){animation-delay:1.3s}
+.term pre div:nth-child(4){animation-delay:1.9s}.term pre div:nth-child(5){animation-delay:2.3s}.term pre div:nth-child(6){animation-delay:2.9s}
+.term pre div:nth-child(7){animation-delay:3.3s}.term pre div:nth-child(8){animation-delay:3.8s}
+@keyframes show{to{opacity:1}}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease;transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1.2rem;text-align:center}
+.stat b{display:block;font:700 2rem/1.1 var(--mono);color:var(--acc)}
+.stat span{color:var(--muted);font-size:.85rem}
+section{padding:4rem 0}
+.sn{font:400 .9rem var(--mono);color:var(--acc);margin:0 0 .4rem}
+h2{font:800 clamp(1.8rem,4vw,2.4rem)/1.15 var(--sans);letter-spacing:-.02em;margin:0 0 2rem}
+h3{font:700 1.05rem var(--sans);margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1.2rem}
+.card h4{font:500 .8rem var(--mono);color:var(--acc);margin:0 0 .9rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
+.chips li{font:400 .78rem var(--mono);color:var(--ink);background:#000;border:1px solid var(--line);border-radius:4px;padding:.2rem .55rem}
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1rem}
+.cert{display:flex;gap:.9rem;align-items:center;background:var(--panel);border:1px solid var(--acc);border-radius:10px;padding:1rem 1.2rem}
+.cert .ic{font-size:1.6rem}
+.cert small{display:block;color:var(--muted);font-size:.85rem}
+.proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1rem}
+.proj .card p{color:var(--muted);margin:.5rem 0 .9rem;font-size:.95rem}
+.tl{border-left:1px solid var(--line);margin-left:.4rem}
+.job{position:relative;padding:0 0 2.2rem 1.6rem}
+.job::before{content:"";position:absolute;left:-5px;top:.45rem;width:9px;height:9px;border-radius:50%;background:var(--acc)}
+.when{font:400 .8rem var(--mono);color:var(--acc);margin:0}
+.co{font:700 1.2rem var(--sans);margin:.2rem 0 0}
+.rl{color:var(--muted);margin:0 0 .7rem;font-size:.95rem}
+.job ul.bul{margin:.8rem 0 0;padding-left:1.1rem;color:var(--muted);font-size:.95rem}
+.job ul.bul li{margin-bottom:.3rem}
+.job .intro{color:var(--muted);font-size:.95rem;margin:.8rem 0 0}
+.job ul.bul strong{color:var(--ink);font-weight:600}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.cinfo p{margin:0 0 1rem}
+form{display:grid;gap:.9rem}
+label{font:400 .8rem var(--mono);color:var(--muted);display:grid;gap:.35rem}
+input,textarea{font:400 .95rem var(--sans);color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:.65rem .8rem;width:100%}
+textarea{min-height:120px;resize:vertical}
+footer{border-top:1px solid var(--line);padding:1.8rem 0;color:var(--muted);font-size:.9rem}
+.sub{font:500 clamp(1.05rem,2.6vw,1.35rem) var(--mono);color:var(--acc2);margin:-.2rem 0 1.2rem;min-height:1.7em}
+.sub::after{content:"▌";margin-left:2px;color:var(--acc);animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+@media (max-width:820px){.grid,.cgrid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.hero{padding-top:2.5rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sub::after{animation:none}.js .term pre div,.js .term.in pre div{animation:none;opacity:1}.js .rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<nav aria-label="Main"><div class="wrap">
+  <a class="logo" href="#top">~/denis-cenuse</a>
+  <ul><li><a href="#top">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li></ul>
+</div></nav>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+  <div class="grid">
+    <div>
+      <div class="badge"><i></i>DevOps / DevSecOps</div>
+      <h1>Denis<span>Cenuse</span></h1>
+      <p class="sub" id="sub" aria-label="Data Platform Engineer">Data Platform Engineer</p>
+      <p class="lede">Data Platform Engineer building and running production data platforms on <b>Google Cloud</b>. BigQuery, Terraform, CI/CD automation, and FinOps governance. Based in București, Romania.</p>
+      <div class="btns"><a class="btn main" href="#contact">↗ Get in touch</a><a class="btn" href="#projects">View projects</a></div>
+    </div>
+    <div class="term" aria-label="Terminal illustration">
+      <div class="bar"><i></i><i></i><i></i><span>denis@data-platform ~ zsh</span></div>
+      <pre><div><span class="p">❯</span> <span class="c">terraform plan -out=tfplan</span></div><div><span class="o">Plan:</span> <span class="g">6 to add</span><span class="o">,</span> <span class="y">1 to change</span><span class="o">,</span> <span class="r">0 to destroy</span><span class="o">.</span></div><div><span class="p">❯</span> <span class="c">az pipelines run --name deploy-infra</span></div><div><span class="g">✔ build</span>  <span class="g">✔ test</span>  <span class="g">✔ acceptance</span></div><div><span class="y">● production</span> <span class="o">awaiting approval</span></div><div><span class="p">❯</span> <span class="c">terraform apply tfplan</span></div><div><span class="g">Apply complete!</span> <span class="o">6 added, 1 changed, 0 destroyed.</span></div><div><span class="p">❯</span> <span class="c">_</span></div></pre>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>4+</b><span>Years of experience</span></div>
+    <div class="stat"><b>200+</b><span>Tables optimized</span></div>
+    <div class="stat"><b>GCP</b><span>Architect</span></div>
+    <div class="stat"><b>3</b><span>Certificates</span></div>
+  </div>
+</div></div>
+
+<section id="skills"><div class="wrap">
+  <p class="sn">// 02</p><h2>Technical Arsenal</h2>
+  <div class="cards">
+    <div class="card"><h4>// Google Cloud</h4><ul class="chips"><li>BigQuery</li><li>Cloud Functions</li><li>Cloud Run Functions</li><li>Cloud Build</li><li>Cloud Workflows</li><li>Cloud Scheduler</li><li>Pub/Sub</li><li>Cloud Storage</li><li>Artifact Registry</li></ul></div>
+    <div class="card"><h4>// Data &amp; Governance</h4><ul class="chips"><li>Dataform</li><li>ETL pipelines</li><li>SQL optimization</li><li>IAM &amp; custom roles</li><li>Cloud Monitoring</li><li>Cloud Logging</li></ul></div>
+    <div class="card"><h4>// DevOps &amp; IaC</h4><ul class="chips"><li>Terraform</li><li>Azure DevOps</li><li>Git</li><li>Docker</li><li>CI/CD</li><li>Linux</li></ul></div>
+    <div class="card"><h4>// Scripting &amp; Practices</h4><ul class="chips"><li>Python</li><li>Bash</li><li>PowerShell</li><li>SQL</li><li>FinOps</li><li>DevSecOps</li></ul></div>
+  </div>
+  <div class="certs">
+    <div class="cert"><span class="ic">🏅</span><div><b>Associate Cloud Engineer</b><small>Google Cloud</small></div></div>
+    <div class="cert"><span class="ic">🏅</span><div><b>Build Infrastructure with Terraform on Google Cloud</b><small>Infrastructure as Code</small></div></div>
+    <div class="cert"><span class="ic">🏅</span><div><b>Manage Kubernetes in Google Cloud</b><small>Containers &amp; orchestration</small></div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <p class="sn">// 03</p><h2>Projects</h2>
+  <div class="proj">
+    <div class="card"><h3>Partitioning 200+ production tables</h3><p>All 200+ tables of many large datasets partitioned in production environments, including giant tables of multiple terabytes, with zero failures.</p><ul class="chips"><li>BigQuery</li><li>Partitioning</li><li>FinOps</li></ul></div>
+    <div class="card"><h3>Guardian: unauthorized deployment defense</h3><p>Cloud Monitoring alert plus a Cloud Workflows pipeline that detects unauthorized Dataform deployments and cancels them automatically. Tested end to end in production.</p><ul class="chips"><li>Cloud Monitoring</li><li>Cloud Workflows</li><li>Dataform</li></ul></div>
+    <div class="card"><h3>Dataform CI/CD and Terraform standard</h3><p>Azure DevOps and Terraform deployment framework for GCP Dataform.</p><ul class="chips"><li>Azure DevOps</li><li>Terraform</li><li>Dataform</li></ul></div>
+    <div class="card"><h3>Blob archival Cloud Function</h3><p>New event-driven function with GCS and Pub/Sub triggers, multi-environment configs, and GCS-to-Azure path mapping for STS. Shipped end to end.</p><ul class="chips"><li>Cloud Functions</li><li>Pub/Sub</li><li>Python</li></ul></div>
+    <div class="card"><h3>Storage lifecycle on 30+ buckets</h3><p>Object Lifecycle Management rolled out in two waves, backed by a custom automation script and a Cloud Build pipeline.</p><ul class="chips"><li>Cloud Storage</li><li>Cloud Build</li><li>FinOps</li></ul></div>
+    <div class="card"><h3>Knowledge Catalog and PII governance</h3><p>IAM deny policy implementation, stakeholder demo.</p><ul class="chips"><li>IAM</li><li>Governance</li></ul></div>
+    <div class="card"><h3>Data ingestion pipelines (ETL)</h3><p>New ETL pipelines feeding the data platform from multiple data sources.</p><ul class="chips"><li>ETL</li><li>Python</li><li>BigQuery</li></ul></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <p class="sn">// 04</p><h2>Experience</h2>
+  <div class="tl">
+    <div class="job"><p class="when">OCT 2025 — PRESENT</p><p class="co">VidaXL</p><p class="rl">Data Platform Engineer / DevOps Engineer</p>
+      <ul class="chips"><li>GCP</li><li>BigQuery</li><li>Terraform</li><li>Azure DevOps</li><li>Docker</li><li>IAM</li></ul>
+      <p class="intro">Working on both DevOps and Data Engineering topics. I build and operate scalable, secure, and cost-efficient data platforms that support analytics workloads and business intelligence.</p><ul class="bul"><li><strong>Cloud Infrastructure &amp; Architecture:</strong> Design, build and maintain data platforms on Google Cloud Platform, ensuring scalability, reliability, and security.</li><li><strong>CI/CD &amp; Azure DevOps:</strong> Build and manage CI/CD pipelines in Azure DevOps to enable automated deployments, environment standardization, and controlled releases.</li><li><strong>Repository Management:</strong> Maintain repositories, define branching strategies, enforce code standards, and manage version control across data projects.</li><li><strong>FinOps:</strong> Monitor, analyze, and optimize cloud costs, ensuring efficient resource allocation and financial transparency.</li><li><strong>Platform Governance &amp; Security:</strong> Implement access control models, environment structure, and infrastructure standards to ensure compliance and operational stability.</li><li><strong>Data Engineering Enablement:</strong> Support and optimize data workflows by providing production-ready, automated, and well-structured environments.</li></ul></div>
+    <div class="job"><p class="when">OCT 2024 — SEP 2025</p><p class="co">Cognizant</p><p class="rl">Subject Matter Expert, Google Cloud Platform</p>
+      <ul class="chips"><li>GCP</li><li>Troubleshooting</li><li>Team Leadership</li></ul>
+      <ul class="bul"><li>Led a team of 25 Technical Support Representatives, providing troubleshooting guidance on customer issues in Google Cloud.</li></ul></div>
+    <div class="job"><p class="when">NOV 2023 — SEP 2024</p><p class="co">Cognizant</p><p class="rl">Technical Support Representative, Google Cloud Platform · București</p>
+      <ul class="chips"><li>GCP</li><li>Architecture</li><li>Customer Support</li></ul>
+      <ul class="bul"><li>Advised customers on service selection, scaling strategies, and integrations.</li><li>Resolved errors and technical questions about customer infrastructure and GCP products.</li></ul></div>
+  </div>
+  <h2 style="margin-top:1.5rem">Education</h2>
+  <div class="tl">
+    <div class="job"><p class="when">2024 — 2026</p><p class="co">Master's in European Economic Policy</p><p class="rl">National University of Political Studies and Public Administration (SNSPA) · București</p></div>
+    <div class="job"><p class="when">2019 — 2022</p><p class="co">Bachelor's in International Relations and European Studies</p><p class="rl">"Titu Maiorescu" University · București</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <p class="sn">// 05</p><h2>Get In Touch</h2>
+  <div class="cgrid">
+    <div class="cinfo">
+      <h3 style="margin-bottom:.8rem">Let's talk data platforms</h3>
+      <p style="color:var(--muted)">Whether it's a role, a project, or a cloud question, I'd like to hear about it.</p>
+      <p>📍 București, Romania</p>
+      <p>✉️ <a href="mailto:deniscenuse@yahoo.com">deniscenuse@yahoo.com</a></p>
+      <p>🗣️ Romanian (native), English (C1)</p>
+    </div>
+    <form id="f">
+      <label>Name<input id="n" required></label>
+      <label>Email<input id="e" type="email" required></label>
+      <label>Subject<input id="s" required></label>
+      <label>Message<textarea id="m" required></textarea></label>
+      <button class="btn main" type="submit">↗ Send message</button>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© <span id="y">2026</span> Denis Cenuse — Data Platform Engineer</div></footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+(function(){
+  var sel='.badge,h1,.sub,.lede,.btns,.term,.stat,.sn,section h2,.card,.cert,.job,.cinfo,form,footer .wrap';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  els.forEach(function(el){
+    var idx=[].indexOf.call(el.parentNode.children,el);
+    el.style.setProperty('--d',(Math.min(idx,6)*0.09)+'s');
+    el.classList.add('rv');
+  });
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+
+(function(){
+  var el=document.getElementById('sub');
+  var items=["Data Platform Engineer","CI/CD Pipeline Engineer","Terraform & CI/CD Automation","Google Cloud Architect"];
+  var i=0,c=0,del=false;
+  var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(calm){setInterval(function(){i=(i+1)%items.length;el.textContent=items[i]},3000);return;}
+  function tick(){
+    var t=items[i];
+    if(!del){c++;el.textContent=t.slice(0,c);if(c===t.length){del=true;return setTimeout(tick,1800);}return setTimeout(tick,70);}
+    c--;el.textContent=t.slice(0,c);
+    if(c===0){del=false;i=(i+1)%items.length;return setTimeout(tick,350);}
+    setTimeout(tick,35);
+  }
+  el.textContent="";c=0;setTimeout(tick,400);
+})();
+
+document.getElementById('f').addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var g=function(i){return document.getElementById(i).value};
+  var body='From: '+g('n')+' ('+g('e')+')\n\n'+g('m');
+  location.href='mailto:deniscenuse@yahoo.com?subject='+encodeURIComponent(g('s'))+'&body='+encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
